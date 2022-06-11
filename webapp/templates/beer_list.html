@@ -1,12 +1,15 @@
 {% extends 'main_template.html' %}
-
+{% load static %}
 {% block content %}
+        <a href="/">return</a>
         <table>
             <tr>
                 <td>id</td>
                 <td>name</td>
                 <td>price</td>
                 <td>created</td>
+                <td>edit</td>
+                <td>delete</td>
             </tr>
             {% for beer in beers %}
             <tr>
@@ -14,7 +17,17 @@
                 <td>{{beer.name}}</td>
                 <td>{{beer.price}}</td>
                 <td>{{beer.creation}}</td>
+                <td>
+                    <a href="{% url 'edit_beer' beer.id %}">edit</a>
+                </td>
+                <td>
+                    <a href="javascript:deleteBeer({{beer.id}})">delete</a>
+                </td>
+
             </tr>
             {% endfor %}
         </table>
 {% endblock %}
+{%block scripts%}
+    <script type="text/javascript" src="{% static 'ask_deletion.js' %}" ></script>
+{%endblock%}

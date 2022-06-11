@@ -3,10 +3,11 @@
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'dark.css' %}" media="(prefers-color-scheme: dark)" />
         <link rel="stylesheet" type="text/css" href="{% static 'light.css' %}" media="(prefers-color-scheme: light)" />
-
     </head>
     <body>
         {% block content %}
         {% endblock %}
     </body>
+    {% block scripts %}
+    {% endblock %}
 </html>
