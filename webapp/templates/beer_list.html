@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>price</td>
+                <td>created</td>
+            </tr>
+            {% for beer in beers %}
+            <tr>
+                <td>{{beer.id}}</td>
+                <td>{{beer.name}}</td>
+                <td>{{beer.price}}</td>
+                <td>{{beer.creation}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
