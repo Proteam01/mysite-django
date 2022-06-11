@@ -23,5 +23,5 @@ urlpatterns = [
     path('beer_list',beer_list,name='beer_list'),
     path('new_beer',new_beer,name='new_beer'),
     path('edit_beer/<int:beer_id>',edit_beer,name="edit_beer"),
-    path('delete_beer/<int:beer_id>',delete_beer,name='delete_beer')
+    path('delete_beer/<int:beer_id>',delete_beer,name='delete_beer'),
 ]
