@@ -1,5 +1,11 @@
-<html>
-    <body>
+{% extends 'main_template.html' %}
+
+{% block content %}
+        <form method="POST" >
+        {% csrf_token %}
+        <table>
         {{beer_form}}
-    </body>
-</html>
+        </table>
+        <input type="submit" value="save" />
+        </form>
+{% endblock  %}

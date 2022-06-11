@@ -1,6 +1,9 @@
-<html>
-    <body>
+{% extends 'main_template.html' %}
+{% load static %}
+
+
+{% block content %}
         <h2>html mamalon</h2>
         <a href="/beer_list">beer list</a>
-    </body>
-</html>
+        <a href="/new_beer">new beer</a>
+{% endblock %}
