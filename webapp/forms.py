@@ -6,5 +6,5 @@ class BeerForm(forms.ModelForm):
         model = Beer
         fields = '__all__'
         widgets = {
-            'creation': forms.TextInput(attrs={'type':'date'})
+            'creation': forms.TextInput(attrs={'type':'date','class':'date-class'})
         }

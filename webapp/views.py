@@ -46,3 +46,11 @@ def delete_beer(request, beer_id):
     beer = get_object_or_404(Beer, id=beer_id)
     beer.delete()
     return redirect(to='beer_list')
+
+
+def search_beer(request): 
+    if request.method == 'POST':
+        search_beer = request.POST['search_beer']
+        beer_list = Beer.objects.filter( name__contains = search_beer )
+        context = {'beers': beer_list}
+        return render(request, 'beer_list.html', context=context)
