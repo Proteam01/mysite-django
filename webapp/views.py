@@ -9,11 +9,13 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'index.html')
 
+@login_required()
 def beer_list(request):
     beers = Beer.objects.all()
     context = {'beers': beers}
     return render(request, 'beer_list.html', context=context)
 
+@login_required()
 def new_beer(request):
     beer_form = BeerForm()
     if request.method == 'POST':
@@ -29,7 +31,7 @@ def new_beer(request):
     context = {'beer_form': beer_form}
     return render(request,'beer_form.html',context=context)
 
-
+@login_required()
 def edit_beer(request, beer_id):
     beer = get_object_or_404(Beer, id=beer_id)
     if request.method == 'POST':
@@ -44,12 +46,13 @@ def edit_beer(request, beer_id):
     context = {'beer_form': beer_form}
     return render(request,'beer_form.html',context=context)
     
+@login_required()
 def delete_beer(request, beer_id):
     beer = get_object_or_404(Beer, id=beer_id)
     beer.delete()
     return redirect(to='beer_list')
 
-
+@login_required()
 def search_beer(request): 
     if request.method == 'POST':
         search_beer = request.POST['search_beer']
