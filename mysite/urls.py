@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from webapp.views import beer_list, delete_beer, home, new_beer, edit_beer, delete_beer, search_beer
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,6 @@ urlpatterns = [
     path('edit_beer/<int:beer_id>',edit_beer,name="edit_beer"),
     path('delete_beer/<int:beer_id>',delete_beer,name='delete_beer'),
     path('search_beer',search_beer,name='delete_beer'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html')),
+    path('logout', auth_views.logout_then_login),
 ]

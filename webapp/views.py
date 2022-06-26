@@ -1,9 +1,11 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Beer
 from .forms import BeerForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required()
 def home(request):
     return render(request, 'index.html')
 
